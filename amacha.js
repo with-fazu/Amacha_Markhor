@@ -1,39 +1,30 @@
-/* =============================================
-   SITE CONFIG — Yahan apni asli details daalein
-   ============================================= */
+
 
 const SITE_CONFIG = {
 
-  // ⚠️ WHATSAPP NUMBER — country code ke saath, bina + ya dash
-  // Misal: Pakistan ke liye "923001234567"
-  whatsapp: "923169419929",   // <-- APNA NUMBER YAHAN
+  
+  whatsapp: "923169419929",   
 
   // Business email
-  email: "machamarkhor888@gmail.com",  // <-- APNI EMAIL YAHAN
+  email: "machamarkhor888@gmail.com",  
 
-  // Social links (baad mein update karein)
-  instagram: "https://instagram.com/",   // <-- APNA LINK
-  facebook: "https://facebook.com/",    // <-- APNA LINK
+  instagram: "https://instagram.com/",   
+  facebook: "https://facebook.com/",   
 
-  // Company info
+  
   companyName: "Amacha Markhor Travel and Tour",
   location: "Gilgit-Baltistan, Pakistan",
 
 };
 
-/* =============================================
-   Helper: WhatsApp link banayein
-   Misal: waLink("Hunza tour ke baare mein poochna hai")
-   ============================================= */
+
 function waLink(message) {
   const num = SITE_CONFIG.whatsapp;
   const text = encodeURIComponent(message || "Hello! I’d like to inquire about Amacha Markhor’s tour packages.");
   return "https://wa.me/" + num + "?text=" + text;
 }
 
-/* =============================================
-   MAIN JS — Menu, FAQ, back-to-top, scroll reveal
-   ============================================= */
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -62,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         otherBtn.nextElementSibling.style.maxHeight = null;
       });
 
-      // Agar ye pehle se band tha, to khol do
+      
       if (!isOpen) {
         btn.classList.add("open");
         answer.style.maxHeight = answer.scrollHeight + "px";
@@ -85,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ---------- 4. SCROLL REVEAL (halka fade-in) ---------- */
   const revealItems = document.querySelectorAll(".card, .tile, .exp-card");
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(function (entries) {
@@ -116,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-  //  TOURS FILTER — Tours page ke liye
+  //  TOURS FILTER — 
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -166,19 +156,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return item.querySelector("img").src;
   });
 
-  // Image kholna
   function openImage(index) {
     currentIndex = index;
     lightboxImg.src = images[currentIndex];
     lightbox.classList.add("open");
   }
 
-  // Band karna
   function closeImage() {
     lightbox.classList.remove("open");
   }
 
-  // Next / Prev
   function showNext() {
     currentIndex = (currentIndex + 1) % images.length;
     lightboxImg.src = images[currentIndex];
@@ -188,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
     lightboxImg.src = images[currentIndex];
   }
 
-  // Click listeners
   galleryItems.forEach(function (item, i) {
     item.addEventListener("click", function () { openImage(i); });
   });
@@ -196,7 +182,6 @@ document.addEventListener("DOMContentLoaded", function () {
   nextBtn.addEventListener("click", showNext);
   prevBtn.addEventListener("click", showPrev);
 
-  // Keyboard support
   document.addEventListener("keydown", function (e) {
     if (!lightbox.classList.contains("open")) return;
     if (e.key === "Escape") closeImage();
@@ -204,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.key === "ArrowLeft") showPrev();
   });
 
-  // Background pe click karne se band
   lightbox.addEventListener("click", function (e) {
     if (e.target === lightbox) closeImage();
   });
@@ -212,15 +196,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/* =============================================
-   FORM VALIDATION + WhatsApp submit
-   Koi backend nahi — form submit hone pe
-   WhatsApp khulta hai pre-filled message ke saath.
-   ============================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // Sirf wo forms pakro jinpe data-wa-form="" laga hai
   const forms = document.querySelectorAll("form[data-wa-form]");
 
   forms.forEach(function (form) {
@@ -229,7 +207,6 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       let isValid = true;
 
-      // Har required input check karo
       form.querySelectorAll("[required]").forEach(function (input) {
         const group = input.closest(".form-group");
         const errorEl = group ? group.querySelector(".form-error") : null;
@@ -257,7 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!isValid) return;
 
-      // Form ki values ko message mein convert karo
       const formData = new FormData(form);
       let message = "Assalam-o-Alaikum! Website se inquiry bhej raha hoon:\n\n";
       formData.forEach(function (value, key) {
@@ -266,7 +242,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // WhatsApp khulo
       window.open(waLink(message), "_blank");
 
       // Success message dikhao
@@ -289,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  // Phone check (kam se kam 7 digits)
+  // Phone check (7 digits)
   function isValidPhone(phone) {
     return /[0-9]{7,}/.test(phone.replace(/[\s\-\(\)]/g, ""));
   }
