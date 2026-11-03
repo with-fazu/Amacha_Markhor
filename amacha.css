@@ -1,0 +1,1003 @@
+/* =============================================
+   AMACHA MARKHOR — MAIN STYLE FILE
+   Yahan se poori site ka look control hota hai.
+   ============================================= */
+
+/* ⬇️ BRAND COLORS — Yahan change karein */
+:root {
+  --black: #080808;
+  /* Mountain Black */
+  --gold: #F5A623;
+  /* Markhor Gold */
+  --cream: #F4E9D5;
+  /* Mountain Cream */
+  --charcoal: #242321;
+  /* Charcoal */
+  --white: #FFFFFF;
+
+  /* Fonts */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Spacing — gap aur padding ke liye */
+  --gap-small: 1rem;
+  --gap-medium: 2rem;
+  --gap-large: 4rem;
+
+  /* Header ki height */
+  --header-height: 80px;
+}
+
+/* ---------- Reset (basic reset) ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--cream);
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ---------- Headings ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Chhota uppercase label (jaise "EXPLORE") */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: min(100% - 2rem, 1200px);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section--dark {
+  background: var(--black);
+  color: var(--cream);
+}
+
+.section--cream {
+  background: var(--cream);
+  color: var(--charcoal);
+}
+
+/* Simple grid */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* .exp-card h3  {
+  color: black;
+} */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn--gold {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.btn--gold:hover {
+  background: #ffb537;
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  border: 1px solid var(--gold);
+  color: var(--cream);
+}
+
+.btn--outline:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.btn--whatsapp {
+  background: #25D366;
+  color: #04351a;
+}
+
+.btn--whatsapp:hover {
+  background: #20b858;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background: rgba(8, 8, 8, 0.95);
+  border-bottom: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--cream);
+}
+
+.logo-text small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* Nav links */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav a {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--gold);
+}
+
+/* Mobile menu button (by default hidden) */
+.menu-btn {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--cream);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  color: var(--cream);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(8, 8, 8, 0.4), rgba(8, 8, 8, 0.9));
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.hero h1 {
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: rgba(244, 233, 213, 0.85);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- CARDS (Tours / Destinations) ---------- */
+.card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.4);
+}
+
+.card-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--charcoal);
+  position: relative;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.06);
+}
+
+/* Image ke upar chhota badge */
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(8, 8, 8, 0.85);
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--black);
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-price {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--black);
+}
+
+.card-price small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #888;
+}
+
+/* ---------- DESTINATION TILE (image with text on top) ---------- */
+.tile {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  overflow: hidden;
+  color: var(--cream);
+  isolation: isolate;
+}
+
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transition: transform 0.6s ease;
+}
+
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(8, 8, 8, 0.95), rgba(8, 8, 8, 0.1));
+}
+
+.tile:hover img {
+  transform: scale(1.07);
+}
+
+.tile-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+}
+
+.tile-text h3 {
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+
+.tile-text span {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ---------- FILTER BUTTONS ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+/* ---------- STATS (numbers row) ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(245, 166, 35, 0.3);
+  border-bottom: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(244, 233, 213, 0.7);
+  margin-top: 0.5rem;
+}
+
+
+.homeWhatappschat a {
+  background-color: #20b858;
+  padding: 10px 30px;
+  border-radius: 20px;
+  color: #080808;
+}
+
+/* ---------- EXPERIENCE CARDS (with icon) ---------- */
+.exp-card {
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.3s;
+}
+
+.exp-card:hover {
+  border-color: var(--gold);
+  background: rgba(245, 166, 35, 0.05);
+}
+
+.exp-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.exp-card h3 {
+  color: var(--black);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.exp-card p {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.832);
+}
+
+/* ---------- GALLERY ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--charcoal);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s, filter 0.4s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.8);
+}
+
+/* Lightbox (full-screen image view) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 8, 8, 0.95);
+  padding: 2rem;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  color: var(--cream);
+  border-radius: 50%;
+  font-size: 1.4rem;
+}
+
+.lightbox-close {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ---------- FAQ ACCORDION ---------- */
+.faq {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.faq-q::after {
+  content: "+";
+  color: var(--gold);
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.faq-q.open::after {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-a-inner {
+  padding-bottom: 1.2rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ---------- FORMS ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font: inherit;
+  background: var(--white);
+}
+
+.form-group textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: #d32f2f;
+}
+
+.form-error {
+  font-size: 0.75rem;
+  color: #d32f2f;
+  min-height: 1em;
+}
+
+/* Success message */
+.form-success {
+  display: none;
+  padding: 1rem;
+  background: rgba(245, 166, 35, 0.15);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.form-success.show {
+  display: block;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: var(--black);
+  color: var(--cream);
+  padding-top: 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+.footer-logo img {
+  height: 60px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  color: rgba(244, 233, 213, 0.6);
+}
+
+.footer h4 {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer a {
+  font-size: 0.9rem;
+  color: rgba(244, 233, 213, 0.9);
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(245, 166, 35, 0.2);
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: rgba(244, 233, 213, 0.6);
+}
+
+/* ---------- BACK TO TOP BUTTON ---------- */
+.back-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 90;
+}
+
+.back-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- PAGE HERO (inner pages) ---------- */
+.page-hero {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--cream);
+  padding: 5rem 0 3rem;
+  overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(8, 8, 8, 0.4), rgba(8, 8, 8, 0.9));
+}
+
+/* ---------- SIMPLE HELPERS ---------- */
+.text-center {
+  text-align: center;
+}
+
+.mt-3 {
+  margin-top: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 2rem;
+}
+
+/* =============================================
+   RESPONSIVE — Mobile & Tablet ke liye
+   ============================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  /* Nav ko hamburger menu banao */
+  .nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--black);
+    border-bottom: 1px solid rgba(245, 166, 35, 0.3);
+    padding: 1rem 2rem;
+    gap: 0;
+    transform: translateY(-150%);
+    transition: transform 0.4s ease;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+  }
+
+  .nav.open {
+    transform: translateY(0);
+  }
+
+  .nav a {
+    padding: 1rem 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(245, 166, 35, 0.15);
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  /* Sab grids single column */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 85vh;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-footer .btn {
+    width: 100%;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+/* Chhota mobile */
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Reduced motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
